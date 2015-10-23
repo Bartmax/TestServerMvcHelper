@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Hosting;
 using Microsoft.Dnx.Runtime;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Dnx.Runtime.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 using System.IO;
 
 namespace TestServerMvcHelper
@@ -14,7 +14,7 @@ namespace TestServerMvcHelper
             return UseApplicationPath(builder, applicationName, Path.Combine(DefaultRelativePath, applicationName));
         }
         public static WebHostBuilder UseApplicationPath(this WebHostBuilder builder, string applicationName, string appBasePath) {
-            var originalEnvironment = GetOriginalApplcationEnvironment();
+            var originalEnvironment = GetOriginalApplicationEnvironment();
             
             var environment = new MvcTestApplicationEnvironment(originalEnvironment, applicationName, Path.GetFullPath(appBasePath));
             return UseApplicationEnvironment(builder, environment);
@@ -25,7 +25,7 @@ namespace TestServerMvcHelper
             return builder;
         }
 
-        private static IApplicationEnvironment GetOriginalApplcationEnvironment() {
+        private static IApplicationEnvironment GetOriginalApplicationEnvironment() {
             var provider = CallContextServiceLocator.Locator.ServiceProvider;
             var originalEnvironment = provider?.GetRequiredService<IApplicationEnvironment>();
             return originalEnvironment;
