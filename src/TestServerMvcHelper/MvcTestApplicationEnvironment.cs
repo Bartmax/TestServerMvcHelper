@@ -47,11 +47,12 @@ namespace TestServerMvcHelper
 
         public object GetData(string name)
         {
-            return null;
+            return _originalAppEnvironment.GetData(name);
         }
 
         public void SetData(string name, object value)
         {
+            _originalAppEnvironment.SetData(name, value);
         }
 
     }
