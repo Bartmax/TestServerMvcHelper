@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Hosting;
-using Microsoft.Dnx.Runtime;
-using Microsoft.Dnx.Runtime.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.PlatformAbstractions;
 using System.IO;
 
 namespace TestServerMvcHelper
